@@ -2,412 +2,107 @@
 <html lang="th">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>พร้อมเปลี่ยน เขียนรัฐธรรมนูญใหม่ | 8 ก.พ. นี้</title>
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Google Fonts: IBM Plex Sans Thai & Looped -->
-    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@400;500;600;700&family=IBM+Plex+Sans+Thai+Looped:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <!-- Lucide Icons -->
-    <script src="https://unpkg.com/lucide@latest"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Links | อลงกรณ์ นนทรีย์ (กริช)</title>
     
+    <!-- นำเข้า Tailwind CSS สำหรับจัดการความสวยงาม -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- นำเข้า FontAwesome สำหรับไอคอนต่างๆ -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- นำเข้าฟอนต์ภาษาไทยจาก Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
     <style>
-        :root {
-            /* CI Colors */
-            --ci-green: #2ab15b;
-            --ci-yellow: #f6e954;
-            --ci-black: #000000;
-            --ci-white: #ffffff;
-        }
-
+        /* ตั้งค่าฟอนต์หลัก */
         body {
-            font-family: 'IBM Plex Sans Thai Looped', sans-serif; /* Body Font */
-            background-color: var(--ci-black);
-            color: var(--ci-white);
-            overflow-x: hidden;
-            -webkit-tap-highlight-color: transparent;
+            font-family: 'Kanit', sans-serif;
         }
 
-        h1, h2, h3, .heading-font {
-            font-family: 'IBM Plex Sans Thai', sans-serif; /* Heading Font */
-        }
-
-        /* Animated Background Elements */
-        .noise-bg {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
-            opacity: 0.05;
-            z-index: -1;
-            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
-            pointer-events: none;
-        }
-
-        .glow-spot {
-            position: fixed;
-            border-radius: 50%;
-            filter: blur(80px);
-            z-index: -2;
-            opacity: 0.4;
-            animation: pulse-glow 8s infinite alternate;
-        }
-        .glow-green {
-            background: var(--ci-green);
-            width: 400px;
-            height: 400px;
-            top: -100px;
-            right: -100px;
-        }
-        .glow-yellow {
-            background: var(--ci-yellow);
-            width: 300px;
-            height: 300px;
-            bottom: -50px;
-            left: -50px;
-            animation-delay: -4s;
-        }
-
-        @keyframes pulse-glow {
-            0% { transform: scale(1); opacity: 0.3; }
-            100% { transform: scale(1.2); opacity: 0.5; }
-        }
-
-        /* Card Styles */
-        .content-card {
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            transition: transform 0.2s ease, border-color 0.2s ease;
-        }
-
-        /* High Contrast Buttons */
-        .btn-action {
-            position: relative;
-            overflow: hidden;
-            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        .btn-action:active {
-            transform: scale(0.98);
-        }
-        
-        /* Custom Scrollbar for Modal */
-        ::-webkit-scrollbar {
-            width: 6px;
-        }
-        ::-webkit-scrollbar-track {
-            background: #1a1a1a; 
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #444; 
-            border-radius: 3px;
-        }
-        ::-webkit-scrollbar-thumb:hover {
-            background: #666; 
-        }
-        
-        .animate-slide-up {
-            animation: slideUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-            opacity: 0;
-            transform: translateY(20px);
-        }
-        
-        @keyframes slideUp {
+        /* เพิ่ม Animation ตอนโหลดหน้าเว็บให้ดูนุ่มนวล */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
         }
-
-        .delay-100 { animation-delay: 0.1s; }
-        .delay-200 { animation-delay: 0.2s; }
-        .delay-300 { animation-delay: 0.3s; }
+        .animate-fade-in {
+            animation: fadeIn 0.6s ease-out forwards;
+            opacity: 0; /* ซ่อนไว้ก่อนให้ animation ทำงาน */
+        }
         
-        /* Glitch Effect on Hover (Optional for title) */
-        .glitch-hover:hover {
-            text-shadow: 2px 0 var(--ci-green), -2px 0 var(--ci-yellow);
+        /* ตั้งค่าดีเลย์ให้ปุ่มค่อยๆ โผล่มาทีละอัน */
+        .delay-1 { animation-delay: 0.1s; }
+        .delay-2 { animation-delay: 0.2s; }
+        .delay-3 { animation-delay: 0.3s; }
+        .delay-4 { animation-delay: 0.4s; }
+        .delay-5 { animation-delay: 0.5s; }
+        
+        /* ซ่อน Scrollbar แต่ยังเลื่อนได้ */
+        ::-webkit-scrollbar {
+            display: none;
         }
     </style>
 </head>
-<body class="min-h-screen flex flex-col items-center justify-center p-4">
+<!-- พื้นหลังแบบ Gradient ไล่สีแบบพรีเมียม -->
+<body class="bg-gradient-to-br from-indigo-900 via-purple-800 to-pink-700 min-h-screen flex items-center justify-center p-4 text-white selection:bg-pink-500 selection:text-white">
 
-    <div class="noise-bg"></div>
-    <div class="glow-spot glow-green"></div>
-    <div class="glow-spot glow-yellow"></div>
-
-    <!-- Main Container -->
-    <main class="w-full max-w-[400px] mx-auto pb-10">
+    <!-- คอนเทนเนอร์หลัก กำหนดขนาดให้พอดีกับหน้าจอมือถือ -->
+    <main class="w-full max-w-sm mx-auto py-8">
         
-        <!-- Header -->
-        <header class="text-center mb-8 animate-slide-up">
-            <!-- ปรับจาก rounded-full เป็น rounded-2xl และปรับขนาดเล็กน้อย -->
-            <div class="inline-flex items-center justify-center w-28 h-28 rounded-2xl bg-white mb-4 border-4 border-[#2ab15b] shadow-[0_0_20px_rgba(42,177,91,0.4)] relative overflow-hidden group cursor-pointer hover:scale-105 transition-transform duration-300">
-                <!-- Actual Logo Image -->
-                <img src="https://lh3.googleusercontent.com/d/154invQvFVi9v24jgKX5DJlDoeHM0G8vO" alt="โลโก้ 8 กุมภากาเห็นชอบ" class="w-full h-full object-cover">
+        <!-- ส่วนโปรไฟล์ (รูปภาพ ชื่อ และคำอธิบาย) -->
+        <div class="text-center mb-8 animate-fade-in">
+            <div class="relative inline-block">
+                <!-- เปลี่ยน URL รูปภาพตรง src เป็นรูปของคุณได้เลย -->
+                <img src="/pf.png" alt="Profile Picture" class="w-28 h-28 mx-auto rounded-full border-4 border-white/20 object-cover shadow-xl bg-white/10">
+                <!-- จุดสีเขียวแสดงสถานะ Online (เอาออกได้ถ้าไม่ชอบ) -->
+                <span class="absolute bottom-1 right-1 w-5 h-5 bg-green-400 border-2 border-purple-800 rounded-full"></span>
             </div>
             
-            <h1 class="text-3xl font-bold text-white leading-tight heading-font mb-2 drop-shadow-lg">
-                พร้อมเปลี่ยน <br>
-                <span class="text-[#2ab15b]">เขียนรัฐธรรมนูญใหม่</span>
-            </h1>
-            <p class="text-gray-300 text-sm font-light">เส้นทางสู่ประชามติ... ต้องการคุณ</p>
-        </header>
-
-        <!-- Message Box (Bold Style) -->
-        <section class="bg-[#1a1a1a] border-l-4 border-[#2ab15b] p-5 mb-6 rounded-r-xl shadow-lg animate-slide-up delay-100">
-            <div class="flex items-start gap-3">
-                <i data-lucide="message-square-quote" class="w-8 h-8 text-[#f6e954] shrink-0"></i>
-                <div>
-                    <h2 class="heading-font text-lg font-bold text-white mb-2">ถึงพี่ๆ ผู้มีสิทธิเลือกตั้ง</h2>
-                    <p class="text-sm text-gray-300 leading-relaxed mb-3">
-                        8 กุมภานี้... <span class="text-[#2ab15b] font-bold underline decoration-[#2ab15b]">พี่ๆ อายุครบ 18 ปี</span> 
-                        อย่าลืมพกบัตรประชาชน ออกไปใช้สิทธิเพื่ออนาคตของพวกเรา
-                    </p>
-                    <div class="bg-[#2ab15b]/10 p-2 rounded border border-[#2ab15b]/20">
-                        <p class="text-xs text-[#2ab15b]">
-                            "หนึ่งกากบาทของพี่ กำหนดอนาคตการเรียนและสังคมของน้อง"
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <button onclick="copyMessage()" class="w-full mt-4 py-2 border border-gray-600 text-gray-400 text-xs rounded hover:border-white hover:text-white transition-colors flex items-center justify-center gap-2">
-                <i data-lucide="copy" class="w-3 h-3"></i> คัดลอกข้อความไปโพสต์
-            </button>
-        </section>
-
-        <!-- Countdown Block -->
-        <section class="mb-6 animate-slide-up delay-200">
-            <div class="bg-[#f6e954] text-black rounded-xl p-1 shadow-[0_0_15px_rgba(246,233,84,0.2)]">
-                <div class="bg-black/90 text-white rounded-[9px] p-4 text-center border border-[#f6e954]/50">
-                    <h3 class="heading-font text-[#f6e954] uppercase tracking-widest text-xs font-bold mb-3">Countdown to Referendum</h3>
-                    
-                    <div class="grid grid-cols-4 gap-2 font-mono">
-                        <div>
-                            <div class="text-2xl font-bold" id="d">00</div>
-                            <div class="text-[9px] text-gray-500">วัน</div>
-                        </div>
-                        <div>
-                            <div class="text-2xl font-bold" id="h">00</div>
-                            <div class="text-[9px] text-gray-500">ชั่วโมง</div>
-                        </div>
-                        <div>
-                            <div class="text-2xl font-bold" id="m">00</div>
-                            <div class="text-[9px] text-gray-500">นาที</div>
-                        </div>
-                        <div>
-                            <div class="text-2xl font-bold text-[#2ab15b]" id="s">00</div>
-                            <div class="text-[9px] text-gray-500">วินาที</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Action Buttons -->
-        <div class="space-y-3 animate-slide-up delay-300">
-            
-            <!-- Main CTA (Green) -->
-            <button onclick="toggleModal()" class="group btn-action w-full bg-[#2ab15b] text-black p-4 rounded-xl shadow-[0_4px_0_#1e8544] hover:shadow-[0_2px_0_#1e8544] hover:translate-y-[2px] transition-all">
-                <div class="flex items-center justify-between">
-                    <div class="flex items-center gap-4">
-                        <div class="bg-black text-[#2ab15b] p-2 rounded-lg">
-                            <i data-lucide="book-open" class="w-6 h-6"></i>
-                        </div>
-                        <div class="text-left">
-                            <h3 class="heading-font font-bold text-lg">คู่มือเลือกตั้งฉบับย่อ</h3>
-                            <p class="text-xs font-medium opacity-80">อ่านจบไว เข้าใจง่าย</p>
-                        </div>
-                    </div>
-                    <i data-lucide="arrow-right-circle" class="w-6 h-6 opacity-70 group-hover:opacity-100 transition-opacity"></i>
-                </div>
-            </button>
-
-            <!-- Secondary Actions (Black/Outline) -->
-            <a href="https://boraservices.bora.dopa.go.th/election/enqelectloc/" target="_blank" class="btn-action w-full bg-[#1a1a1a] border border-gray-700 text-white p-4 rounded-xl flex items-center justify-between hover:border-[#f6e954] hover:text-[#f6e954] transition-colors">
-                <div class="flex items-center gap-4">
-                    <i data-lucide="search-check" class="w-5 h-5"></i>
-                    <span class="heading-font font-medium">ตรวจสอบสิทธิเลือกตั้ง</span>
-                </div>
-                <i data-lucide="external-link" class="w-4 h-4 opacity-50"></i>
-            </a>
-
-            <a href="https://map.nostramap.com/NostraMap/" target="_blank" class="btn-action w-full bg-[#1a1a1a] border border-gray-700 text-white p-4 rounded-xl flex items-center justify-between hover:border-[#f6e954] hover:text-[#f6e954] transition-colors">
-                <div class="flex items-center gap-4">
-                    <i data-lucide="map-pin" class="w-5 h-5"></i>
-                    <span class="heading-font font-medium">ค้นหาหน่วยเลือกตั้ง</span>
-                </div>
-                <i data-lucide="external-link" class="w-4 h-4 opacity-50"></i>
-            </a>
+            <h1 class="text-2xl font-bold mt-4 mb-1 tracking-wide">อลงกรณ์ นนทรีย์ (กริช)</h1>
+            <p class="text-white/80 text-sm px-4 font-light leading-relaxed">
+                🎤 MC / 🗣️ พิธีกร / 💡 Communication Trainer <br> 
+                ติดต่องานผ่าน Line หรือ DM ด้านล่างได้เลยครับ ✨
+            </p>
         </div>
 
-        <!-- Footer -->
-        <footer class="mt-10 text-center text-gray-500 text-xs animate-slide-up delay-300">
+        <!-- ส่วนของปุ่มลิงก์ต่างๆ -->
+        <div class="space-y-4">
+            
+            <!-- ลิงก์ 1: Instagram -->
+            <a href="https://www.instagram.com/krit.ig_an/" target="_blank" class="animate-fade-in delay-1 block w-full bg-white/10 hover:bg-white/20 border border-white/10 rounded-full py-3.5 px-6 flex items-center transition-all duration-300 hover:scale-105 shadow-lg backdrop-blur-sm group">
+                <i class="fab fa-instagram text-xl w-8 text-pink-400 group-hover:text-pink-300 transition-colors"></i>
+                <span class="flex-grow text-center font-medium pr-8 tracking-wide">Instagram</span>
+            </a>
+            
+            <!-- ลิงก์ 2: TikTok -->
+            <a href="#" target="_blank" class="animate-fade-in delay-2 block w-full bg-white/10 hover:bg-white/20 border border-white/10 rounded-full py-3.5 px-6 flex items-center transition-all duration-300 hover:scale-105 shadow-lg backdrop-blur-sm group">
+                <i class="fab fa-tiktok text-xl w-8 text-white group-hover:text-gray-200 transition-colors"></i>
+                <span class="flex-grow text-center font-medium pr-8 tracking-wide">TikTok</span>
+            </a>
+
+            <!-- ลิงก์ 3: YouTube -->
+            <a href="https://www.youtube.com/@krit.yt001" target="_blank" class="animate-fade-in delay-3 block w-full bg-white/10 hover:bg-white/20 border border-white/10 rounded-full py-3.5 px-6 flex items-center transition-all duration-300 hover:scale-105 shadow-lg backdrop-blur-sm group">
+                <i class="fab fa-youtube text-xl w-8 text-red-500 group-hover:text-red-400 transition-colors"></i>
+                <span class="flex-grow text-center font-medium pr-8 tracking-wide">YouTube Channel</span>
+            </a>
+
+            <!-- ลิงก์ 4: Line Official -->
+            <a href="https://lin.ee/1QSZGu0" target="_blank" class="animate-fade-in delay-4 block w-full bg-white/10 hover:bg-white/20 border border-white/10 rounded-full py-3.5 px-6 flex items-center transition-all duration-300 hover:scale-105 shadow-lg backdrop-blur-sm group">
+                <i class="fab fa-line text-xl w-8 text-green-400 group-hover:text-green-300 transition-colors"></i>
+                <span class="flex-grow text-center font-medium pr-8 tracking-wide">ติดต่องาน (Line)</span>
+            </a>
+            
+        </div>
+
+        <!-- ส่วน Footer (ไอคอนโซเชียลเล็กๆ ด้านล่าง) -->
+        <div class="mt-12 text-center animate-fade-in delay-5">
             <div class="flex justify-center gap-6 mb-4">
-                <button onclick="copyLink()" class="text-gray-400 hover:text-white transition-colors flex items-center gap-2">
-                    <i data-lucide="share-2" class="w-5 h-5"></i>
-                    <span>แชร์หน้านี้</span>
-                </button>
+                <a href="#" class="text-white/50 hover:text-white transition-colors hover:scale-110 transform duration-200"><i class="fab fa-facebook-f text-lg"></i></a>
+                <a href="#" class="text-white/50 hover:text-white transition-colors hover:scale-110 transform duration-200"><i class="fab fa-twitter text-lg"></i></a>
+                <a href="mailto:alongkon.an@gmail.com" class="text-white/50 hover:text-white transition-colors hover:scale-110 transform duration-200"><i class="fas fa-envelope text-lg"></i></a>
             </div>
-            <p>#พร้อมเปลี่ยน #เขียนรัฐธรรมนูญใหม่</p>
-        </footer>
+            <p class="text-xs text-white/40 font-light">© 2026 อลงกรณ์ นนทรีย์ (กริช). All rights reserved.</p>
+        </div>
 
     </main>
 
-    <!-- Modal (High Contrast & Scrollable Content) -->
-    <div id="imageModal" class="fixed inset-0 z-50 hidden opacity-0 transition-opacity duration-300">
-        <div class="absolute inset-0 bg-black/90 backdrop-blur-sm" onclick="toggleModal()"></div>
-        <div class="absolute inset-x-4 top-1/2 -translate-y-1/2 max-w-sm mx-auto">
-            <div class="bg-[#1a1a1a] border border-[#2ab15b] rounded-2xl shadow-[0_0_30px_rgba(42,177,91,0.2)] transform scale-95 transition-transform duration-300 flex flex-col max-h-[85vh]" id="modalContent">
-                
-                <!-- Modal Header -->
-                <div class="flex justify-between items-center px-4 py-4 border-b border-gray-800 shrink-0">
-                    <h3 class="heading-font font-bold text-white text-lg flex items-center gap-2">
-                        <i data-lucide="book-open-check" class="w-5 h-5 text-[#f6e954]"></i>
-                        คู่มือฉบับรวบรัด
-                    </h3>
-                    <button onclick="toggleModal()" class="text-gray-400 hover:text-white bg-gray-800/50 rounded-full p-1"><i data-lucide="x" class="w-5 h-5"></i></button>
-                </div>
-                
-                <!-- Modal Content (Scrollable) -->
-                <div class="overflow-y-auto p-4 space-y-4 custom-scrollbar">
-                    
-                    <!-- Section 1: 3 Ballots -->
-                    <div class="bg-white/5 rounded-xl p-4 border border-white/10">
-                        <h4 class="text-[#2ab15b] font-bold mb-3 heading-font flex items-center gap-2">
-                            <span class="bg-[#2ab15b] text-black text-xs px-2 py-0.5 rounded-full">สำคัญ</span>
-                            บัตร 3 ใบ กาแบบไหน?
-                        </h4>
-                        <div class="space-y-3 text-sm">
-                            <div class="flex items-center gap-3">
-                                <div class="w-8 h-8 rounded-full bg-purple-500 border-2 border-white/20 shrink-0 flex items-center justify-center text-xs font-bold">1</div>
-                                <div>
-                                    <p class="font-bold text-purple-300">เลือก สส. เขต</p>
-                                    <p class="text-xs text-gray-400">เลือกคนที่รัก (สีม่วง)</p>
-                                </div>
-                            </div>
-                            <div class="flex items-center gap-3">
-                                <div class="w-8 h-8 rounded-full bg-green-500 border-2 border-white/20 shrink-0 flex items-center justify-center text-black text-xs font-bold">2</div>
-                                <div>
-                                    <p class="font-bold text-green-400">เลือก พรรค</p>
-                                    <p class="text-xs text-gray-400">เลือกพรรคที่ชอบ (สีเขียว)</p>
-                                </div>
-                            </div>
-                            <div class="flex items-center gap-3 bg-[#f6e954]/10 p-2 rounded-lg border border-[#f6e954]/30">
-                                <div class="w-8 h-8 rounded-full bg-[#f6e954] text-black border-2 border-black/20 shrink-0 flex items-center justify-center text-xs font-bold">3</div>
-                                <div>
-                                    <p class="font-bold text-[#f6e954]">ประชามติ (สำคัญมาก)</p>
-                                    <p class="text-xs text-gray-300">กาช่อง <span class="text-[#2ab15b] underline">"เห็นชอบ"</span> ร่างรัฐธรรมนูญใหม่</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Section 2: Timeline -->
-                    <div class="bg-white/5 rounded-xl p-4 border border-white/10">
-                        <h4 class="text-white font-bold mb-3 heading-font flex items-center gap-2">
-                            <i data-lucide="calendar" class="w-4 h-4"></i> ปฏิทินเลือกตั้ง
-                        </h4>
-                        <ul class="space-y-3 relative border-l border-gray-700 ml-2 pl-4 text-sm">
-                            <li class="relative">
-                                <div class="absolute -left-[21px] top-1 w-2.5 h-2.5 rounded-full bg-gray-600"></div>
-                                <span class="text-gray-400 block text-xs">1 ก.พ. 69</span>
-                                <span class="text-gray-200">เลือกตั้งล่วงหน้า (นอกเขต)</span>
-                            </li>
-                            <li class="relative">
-                                <div class="absolute -left-[21px] top-1 w-2.5 h-2.5 rounded-full bg-[#2ab15b] shadow-[0_0_10px_#2ab15b]"></div>
-                                <span class="text-[#2ab15b] block text-xs font-bold">8 ก.พ. 69 (วันจริง!)</span>
-                                <span class="text-white font-bold">เข้าคูหา 08:00 - 17:00 น.</span>
-                            </li>
-                        </ul>
-                    </div>
-
-                    <!-- Section 3: Why -->
-                    <div class="p-4 bg-gradient-to-br from-[#2ab15b]/20 to-transparent rounded-xl border border-[#2ab15b]/30">
-                        <h4 class="text-white font-bold mb-2 heading-font text-sm">ทำไมต้องกา "เห็นชอบ"?</h4>
-                        <p class="text-xs text-gray-300 leading-relaxed">
-                            เพื่อรื้อถอนอำนาจ สว. จากการแต่งตั้ง และเปิดทางให้ประชาชนได้เขียนกติกาประเทศใหม่ด้วยมือเราเอง
-                        </p>
-                    </div>
-
-                </div>
-
-                <!-- Modal Footer -->
-                <div class="p-4 border-t border-gray-800 shrink-0 bg-[#1a1a1a] rounded-b-2xl">
-                     <a href="https://drive.google.com/file/d/1oEXhvqi-joywcdTrrJWr6aYg1ePp3lil/view?usp=drive_link" target="_blank" class="block w-full text-center py-3 bg-[#f6e954] text-black font-bold heading-font rounded-xl hover:bg-white transition-colors mb-2">
-                        อ่านคู่มือฉบับเต็ม (PDF)
-                    </a>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Notification Toast -->
-    <div id="toast" class="fixed top-5 left-1/2 -translate-x-1/2 bg-[#2ab15b] text-black px-6 py-3 rounded-none skew-x-[-10deg] shadow-xl font-bold transform -translate-y-[200%] transition-transform duration-300 z-[60] flex items-center gap-2 border-2 border-white">
-        <i data-lucide="check-circle" class="w-5 h-5"></i>
-        <span id="toastMsg" class="skew-x-[10deg]">คัดลอกเรียบร้อย!</span>
-    </div>
-
-    <script>
-        lucide.createIcons();
-
-        // Countdown (Same logic)
-        const targetDate = new Date('February 8, 2026 08:00:00').getTime();
-        function updateCountdown() {
-            const now = new Date().getTime();
-            const distance = targetDate - now;
-            if (distance < 0) return;
-
-            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-            document.getElementById('d').innerText = days.toString().padStart(2, '0');
-            document.getElementById('h').innerText = hours.toString().padStart(2, '0');
-            document.getElementById('m').innerText = minutes.toString().padStart(2, '0');
-            document.getElementById('s').innerText = seconds.toString().padStart(2, '0');
-        }
-        setInterval(updateCountdown, 1000);
-        updateCountdown();
-
-        // Modal & Toast Logic
-        function toggleModal() {
-            const modal = document.getElementById('imageModal');
-            const content = document.getElementById('modalContent');
-            if (modal.classList.contains('hidden')) {
-                modal.classList.remove('hidden');
-                setTimeout(() => {
-                    modal.classList.remove('opacity-0');
-                    content.classList.remove('scale-95');
-                    content.classList.add('scale-100');
-                }, 10);
-            } else {
-                modal.classList.add('opacity-0');
-                content.classList.remove('scale-100');
-                content.classList.add('scale-95');
-                setTimeout(() => {
-                    modal.classList.add('hidden');
-                }, 300);
-            }
-        }
-
-        function showToast(msg) {
-            const toast = document.getElementById('toast');
-            document.getElementById('toastMsg').innerText = msg;
-            toast.classList.remove('-translate-y-[200%]');
-            setTimeout(() => {
-                toast.classList.add('-translate-y-[200%]');
-            }, 2000);
-        }
-
-        function copyLink() {
-            navigator.clipboard.writeText(window.location.href);
-            showToast("คัดลอกลิงก์แล้ว!");
-        }
-
-        function copyMessage() {
-            const msg = "8 กุมภานี้... พี่ๆ อายุครบ 18 ปี อย่าลืมพกบัตรประชาชน ออกไปใช้สิทธิเพื่ออนาคตของพวกเรา! #พร้อมเปลี่ยน #เขียนรัฐธรรมนูญใหม่";
-            navigator.clipboard.writeText(msg);
-            showToast("คัดลอกข้อความแล้ว!");
-        }
-    </script>
 </body>
 </html>
