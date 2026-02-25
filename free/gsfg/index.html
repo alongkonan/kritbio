@@ -36,51 +36,43 @@
         
         <div class="bg-white rounded-xl shadow-lg p-6 md:p-8 space-y-8">
             
-            <!-- ตั้งค่าชีตและคอลัมน์ -->
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div>
-                    <label class="block text-sm font-medium text-gray-700 mb-2">ชื่อชีตที่ต้องการดึงข้อมูล</label>
-                    <input type="text" id="sheetName" value="การตอบแบบฟอร์ม 1" 
-                           class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 outline-none transition-all"
-                           placeholder="เช่น การตอบแบบฟอร์ม 1 หรือ Form Responses 1">
-                </div>
-                <div>
-                    <label class="block text-sm font-medium text-gray-700 mb-2">ช่วงข้อมูล (คอลัมน์)</label>
-                    <input type="text" id="range" value="A2:Z" 
-                           class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 outline-none transition-all"
-                           placeholder="เช่น A2:Z หรือ A2:F">
-                    <p class="text-xs text-gray-500 mt-1">* เริ่มที่แถว 2 (A2) เพื่อไม่เอาหัวตารางมาซ้ำกัน</p>
-                </div>
-            </div>
-
-            <hr class="border-gray-200">
-
-            <!-- ส่วนใส่ URL -->
+            <!-- ส่วนรายการไฟล์และตั้งค่า -->
             <div>
-                <div class="flex justify-between items-center mb-4">
-                    <h2 class="text-xl font-medium text-gray-800">ลิงก์ (URL) ของไฟล์ที่ต้องการรวม</h2>
-                    <button onclick="addUrlInput()" class="bg-emerald-100 text-emerald-700 hover:bg-emerald-200 px-4 py-2 rounded-lg text-sm font-medium transition-colors flex items-center">
+                <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-6 gap-4">
+                    <div>
+                        <h2 class="text-xl font-medium text-gray-800">รายการไฟล์ Google Sheets</h2>
+                        <p class="text-sm text-gray-500 mt-1">กำหนดลิงก์ ชื่อชีต และช่วงข้อมูลของแต่ละไฟล์ได้อิสระ</p>
+                    </div>
+                    <button onclick="addUrlInput()" class="bg-emerald-100 text-emerald-700 hover:bg-emerald-200 px-4 py-2 rounded-lg text-sm font-medium transition-colors flex items-center whitespace-nowrap">
                         <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path></svg>
                         เพิ่มไฟล์
                     </button>
                 </div>
 
-                <div id="urlContainer" class="space-y-3">
-                    <!-- URL Input 1 -->
-                    <div class="flex gap-2 items-start url-group">
-                        <span class="bg-gray-100 border border-gray-300 text-gray-500 px-3 py-2 rounded-lg text-sm font-medium mt-1">1</span>
-                        <input type="text" class="url-input flex-1 px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 outline-none transition-all mt-1" placeholder="วางลิงก์ Google Sheet ไฟล์ที่ 1 ที่นี่...">
-                        <button onclick="removeUrlInput(this)" class="mt-1 p-2 text-red-500 hover:bg-red-50 rounded-lg transition-colors" title="ลบไฟล์นี้">
-                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path></svg>
-                        </button>
-                    </div>
-                    <!-- URL Input 2 -->
-                    <div class="flex gap-2 items-start url-group">
-                        <span class="bg-gray-100 border border-gray-300 text-gray-500 px-3 py-2 rounded-lg text-sm font-medium mt-1">2</span>
-                        <input type="text" class="url-input flex-1 px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 outline-none transition-all mt-1" placeholder="วางลิงก์ Google Sheet ไฟล์ที่ 2 ที่นี่...">
-                        <button onclick="removeUrlInput(this)" class="mt-1 p-2 text-red-500 hover:bg-red-50 rounded-lg transition-colors" title="ลบไฟล์นี้">
-                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path></svg>
-                        </button>
+                <div id="urlContainer" class="space-y-4">
+                    <!-- File Block 1 -->
+                    <div class="url-group bg-gray-50 p-5 rounded-xl border border-gray-200 relative">
+                        <div class="flex justify-between items-center mb-4">
+                            <span class="font-medium text-emerald-700 bg-emerald-100 px-3 py-1 rounded-full text-sm">ไฟล์ที่ <span class="file-number">1</span></span>
+                            <button onclick="removeUrlInput(this)" class="text-red-400 hover:text-red-600 transition-colors" title="ลบไฟล์นี้">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path></svg>
+                            </button>
+                        </div>
+                        <div class="space-y-4">
+                            <div>
+                                <input type="text" class="url-input w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 outline-none transition-all" placeholder="วางลิงก์ Google Sheet ที่นี่...">
+                            </div>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block text-xs font-medium text-gray-600 mb-1">ชื่อชีต</label>
+                                    <input type="text" class="sheet-name-input w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 outline-none text-sm" value="การตอบแบบฟอร์ม 1">
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-medium text-gray-600 mb-1">ช่วงข้อมูล</label>
+                                    <input type="text" class="range-input w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 outline-none text-sm" value="A2:Z">
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -129,8 +121,7 @@
         function updateUrlNumbers() {
             const groups = document.querySelectorAll('.url-group');
             groups.forEach((group, index) => {
-                group.querySelector('span').textContent = index + 1;
-                group.querySelector('input').placeholder = `วางลิงก์ Google Sheet ไฟล์ที่ ${index + 1} ที่นี่...`;
+                group.querySelector('.file-number').textContent = index + 1;
             });
         }
 
@@ -138,13 +129,29 @@
         function addUrlInput() {
             const container = document.getElementById('urlContainer');
             const newGroup = document.createElement('div');
-            newGroup.className = 'flex gap-2 items-start url-group';
+            newGroup.className = 'url-group bg-gray-50 p-5 rounded-xl border border-gray-200 relative';
             newGroup.innerHTML = `
-                <span class="bg-gray-100 border border-gray-300 text-gray-500 px-3 py-2 rounded-lg text-sm font-medium mt-1"></span>
-                <input type="text" class="url-input flex-1 px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 outline-none transition-all mt-1">
-                <button onclick="removeUrlInput(this)" class="mt-1 p-2 text-red-500 hover:bg-red-50 rounded-lg transition-colors" title="ลบไฟล์นี้">
-                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path></svg>
-                </button>
+                <div class="flex justify-between items-center mb-4">
+                    <span class="font-medium text-emerald-700 bg-emerald-100 px-3 py-1 rounded-full text-sm">ไฟล์ที่ <span class="file-number"></span></span>
+                    <button onclick="removeUrlInput(this)" class="text-red-400 hover:text-red-600 transition-colors" title="ลบไฟล์นี้">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path></svg>
+                    </button>
+                </div>
+                <div class="space-y-4">
+                    <div>
+                        <input type="text" class="url-input w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 outline-none transition-all" placeholder="วางลิงก์ Google Sheet ที่นี่...">
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-xs font-medium text-gray-600 mb-1">ชื่อชีต</label>
+                            <input type="text" class="sheet-name-input w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 outline-none text-sm" value="การตอบแบบฟอร์ม 1">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-medium text-gray-600 mb-1">ช่วงข้อมูล</label>
+                            <input type="text" class="range-input w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 outline-none text-sm" value="A2:Z">
+                        </div>
+                    </div>
+                </div>
             `;
             container.appendChild(newGroup);
             updateUrlNumbers();
@@ -154,7 +161,7 @@
         function removeUrlInput(button) {
             const container = document.getElementById('urlContainer');
             if (container.children.length > 1) {
-                button.parentElement.remove();
+                button.closest('.url-group').remove();
                 updateUrlNumbers();
             } else {
                 showMessage("ต้องมีไฟล์อย่างน้อย 1 ไฟล์ครับ", true);
@@ -163,20 +170,17 @@
 
         // สร้างสูตร
         function generateFormula() {
-            const sheetNameInput = document.getElementById('sheetName').value.trim();
-            const sheetName = sheetNameInput || 'การตอบแบบฟอร์ม 1';
-            
-            const rangeInput = document.getElementById('range').value.trim();
-            const range = rangeInput || 'A2:Z';
-            
-            const urlInputs = document.querySelectorAll('.url-input');
+            const groups = document.querySelectorAll('.url-group');
             let importRanges = [];
 
-            urlInputs.forEach(input => {
-                let url = input.value.trim();
-                if (url) {
+            groups.forEach(group => {
+                let urlInput = group.querySelector('.url-input').value.trim();
+                let sheetName = group.querySelector('.sheet-name-input').value.trim() || 'การตอบแบบฟอร์ม 1';
+                let range = group.querySelector('.range-input').value.trim() || 'A2:Z';
+
+                if (urlInput) {
                     // ลบ query parameters ออกเพื่อให้ URL สะอาดขึ้น (เผื่อผู้ใช้ก๊อปปี้มาติด ?usp=sharing)
-                    let cleanUrl = url.split('?')[0];
+                    let cleanUrl = urlInput.split('?')[0];
                     importRanges.push(`  IMPORTRANGE("${cleanUrl}", "${sheetName}!${range}")`);
                 }
             });
