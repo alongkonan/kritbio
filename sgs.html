@@ -1,0 +1,188 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head id="ctl00_Head1">
+    <meta http-equiv="X-UA-Compatible" content="IE=10" />
+    <meta name="keywords" content="Sgss" />
+    <title>Sign In (Test Local)</title>
+    <!-- เติม Domain หน้าไฟล์ CSS เพื่อให้ดึงสไตล์มาแสดงผลได้ -->
+    <link href="https://sgs.bopp-obec.info/sgss/App_Themes/Granny%20Apple/BaseStyles.css" type="text/css" rel="stylesheet" />
+    <link href="https://sgs.bopp-obec.info/sgss/App_Themes/Granny%20Apple/Styles.css" type="text/css" rel="stylesheet" />
+</head>
+<body id="ctl00_Body1" class="pBack">
+    <!-- เติม Domain หน้า Action เพื่อให้ปุ่ม Submit ส่งข้อมูลกลับไปที่ Server (ถึงจะส่งไป Server ก็จะปฏิเสธอยู่ดีถ้าไม่ใช่เวลาที่กำหนด) -->
+    <form name="aspnetForm" method="post" action="https://sgs.bopp-obec.info/sgss/Security/SignIn.aspx" onsubmit="javascript:return WebForm_OnSubmit();" id="aspnetForm">
+        <div>
+            <input type="hidden" name="ctl00_scriptManager1_HiddenField" id="ctl00_scriptManager1_HiddenField" value="" />
+            <input type="hidden" name="__EVENTTARGET" id="__EVENTTARGET" value="" />
+            <input type="hidden" name="__EVENTARGUMENT" id="__EVENTARGUMENT" value="" />
+            <input type="hidden" name="__LASTFOCUS" id="__LASTFOCUS" value="" />
+            <input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwUJNjczNjg5MjY0DxQrAAMWBh4KU3VjY2Vzc1VSTGQeD1N1Y2Nlc3NVUkxQYXJhbWQeE1ZhbGlkYXRlUmVxdWVzdE1vZGUCAWhkFgJmD2QWAgIDD2QWAgIBD2QWBAIDD2QWFAIDDw8WAh4HVmlzaWJsZWhkZAIFDxYCHgRUZXh0BVJTR1Mg4Liq4Liz4Lir4Lij4Lix4Lia4LiZ4Lix4LiB4LmA4Lij4Li14Lii4LiZ4LmB4Lil4Liw4Lic4Li54LmJ4Lib4LiB4LiE4Lij4Lit4LiHZAIJDxAPFgQeC18hRGF0YUJvdW5kZx8DaGRkFgBkAgsPDxYCHwNoZGQCDQ8QDxYCHwVnZBAVAw1FbGVjdHJpYyBCbHVlC0ZpcmUgRW5naW5lDEdyYW5ueSBBcHBsZRUDDUVsZWN0cmljIEJsdWULRmlyZSBFbmdpbmUMR3Jhbm55IEFwcGxlFCsDA2dnZxYBAgJkAhEPDxYEHgdUb29sVGlwBRjguYDguILguYnguLLguKPguLDguJrguJofBAUY4LmA4LiC4LmJ4Liy4Lij4Liw4Lia4LiaZGQCEw8PFgQeCEltYWdlVXJsBR0uLi9JbWFnZXMvU2lnbkluQmFyU2lnbkluLmdpZh8GBRjguYDguILguYnguLLguKPguLDguJrguJoWBB4Lb25tb3VzZW92ZXIFLHRoaXMuc3JjPScuLi9JbWFnZXMvU2lnbkluQmFyU2lnbkluT3Zlci5naWYnHgpvbm1vdXNlb3V0BSh0aGlzLnNyYz0nLi4vSW1hZ2VzL1NpZ25JbkJhclNpZ25Jbi5naWYnZAIVDw8WAh8DaGRkAhcPDxYEHwYFG+C4nuC4tOC4oeC4nuC5jOC4q+C4meC5ieC4sh8DaGRkAh0PDxYEHwQFPOC4hOC4uOC4k+C4ouC4seC4h+C5hOC4oeC5iOC5hOC4lOC5ieC5gOC4guC5ieC4suC4o+C4sOC4muC4mh8DZ2RkAgUPZBYIAgEPDxYCHwYFFuC4ouC5iOC4rS/guILguKLguLLguKJkZAICDxYCHwQFGOC5gOC4guC5ieC4suC4o+C4sOC4muC4mmQCAw9kFiACAQ8PFgIfBAVy4Lib4LmJ4Lit4LiZ4LiK4Li34LmI4Lit4Lic4Li54LmJ4LmD4LiK4LmJ4LmB4Lil4Liw4Lij4Lir4Lix4Liq4Lic4LmI4Liy4LiZ4LmA4Lie4Li34LmI4Lit4LmA4LiC4LmJ4Liy4Lij4Liw4Lia4LiaZGQCAw8PFgIfBAU54LmA4Lil4LiK4Lib4Lij4Liw4LiI4Liz4LiV4Lix4Lin4LiZ4Lix4LiB4LmA4Lij4Li14Lii4LiZZGQCBQ8PFgIeCFRhYkluZGV4AQEAZGQCBw8PFgIeDEVycm9yTWVzc2FnZQUx4LiV4LmJ4Lit4LiH4LiB4Liy4Lij4LiE4LmI4Liy4LiC4Lit4LiHIFVzZXJOYW1lIGRkAgkPEA8WBB8KAQMAHgxBdXRvUG9zdEJhY2tnZGRkZAILDw8WAh8EBSTguIjguLPguIrguLfguYjguK3guJzguLnguYnguYPguIrguYlkZAINDw8WAh8EBTbguYDguKXguILguJvguKPguLDguIjguLPguJXguLHguKfguJvguKPguLDguIrguLLguIrguJlkZAIPDw8WAh8KAQIAFgIeBXZhbHVlZWQCEQ8PFgIfCwUx4LiV4LmJ4Lit4LiH4LiB4Liy4Lij4LiE4LmI4Liy4LiC4Lit4LiHIFBhc3N3b3JkIGRkAhMPEA8WBB8KAQQAHwxnZGRkZAIVDw8WAh8EBR7guIjguLPguKPguKvguLHguKrguJzguYjguLLguJlkZAIXDw8WBB8EBSPguKXguLfguKHguKPguKvguLHguKrguJzguYjguLLguJkgPx8DaGRkAhkPEA8WBB8KAQUAHgdDaGVja2VkaGRkZGQCGw8PFgIfBAUw4LmA4LiC4LmJ4Liy4LmD4LiK4LmJ4Lit4Lix4LiV4LmC4LiZ4Lih4Lix4LiV4Li0ZGQCHw9kFgICAQ8PFgQfBAUM4LiV4LiB4Lil4LiHHwYFDOC4leC4geC4peC4h2RkAiEPZBYCAgEPDxYEHwQFBkNhbmNlbB8GBQZDYW5jZWxkZAIEDw8WAh4KSGVhZGVyVGV4dAVb4LmC4Lib4Lij4LiU4LmB4LiB4LmJ4LmE4LiC4LiC4LmJ4Lit4Lic4Li04LiU4Lie4Lil4Liy4LiU4LiU4Lix4LiH4LiV4LmI4Lit4LmE4Lib4LiZ4Li14LmJOmRkGAEFHl9fQ29udHJvbHNSZXF1aXJlUG9zdEJhY2tLZXlfXxYFBRtjdGwwMCRfUGFnZUhlYWRlciRfU0lPSW1hZ2UFImN0bDAwJFBhZ2VDb250ZW50JFNpZ25JblRvZ2dsZUljb24FImN0bDAwJFBhZ2VDb250ZW50JFJlbWVtYmVyVXNlck5hbWUFImN0bDAwJFBhZ2VDb250ZW50JFJlbWVtYmVyUGFzc3dvcmQFJWN0bDAwJFBhZ2VDb250ZW50JEF1dG9tYXRpY2FsbHlTaWduSW4BtHrFFW+8ILlJKq45KdfD/2Y56DsCjAfcbdlxHhMIQg==" />
+        </div>
+
+        <!-- เติม Domain หน้าไฟล์ JavaScript ที่จำเป็น -->
+        <script src="https://sgs.bopp-obec.info/sgss/WebResource.axd?d=mnVhHaJ6ITT2nRv-FvdVZakLnRdjAgNdqF-gsRPAn_r50fmvYhKn1TFNH6I2irQ0VTyzvrdD3rk81I37vbQQzIHTy4p4T5qXzzG6K5qPLnw1&amp;t=638902023720898773" type="text/javascript"></script>
+        <script language="javascript" type="text/javascript" src="https://sgs.bopp-obec.info/sgss/ApplicationWebForm.js"></script>
+        <script language="javascript" type="text/javascript" src="https://sgs.bopp-obec.info/sgss/SetFocus.js"></script>
+        <script language="javascript" type="text/javascript" src="https://sgs.bopp-obec.info/sgss/ApplicationWebUIValidation.js"></script>
+        <script language="javascript" type="text/javascript" src="https://sgs.bopp-obec.info/sgss/JQuery.js"></script>
+        <script language="javascript" type="text/javascript" src="https://sgs.bopp-obec.info/sgss/LegacyFunctions.js"></script>
+        <script src="https://sgs.bopp-obec.info/sgss/ScriptResource.axd?d=zIatzi6O9x8yee3vT4_Qmq5c5LobrBKTGqTpKOn1Sdr-VaiIh6lR2DAS_uuyx3-DDPqY_uUbkop1OWxjZowfz2dTjx_Xo0Cu6GaoB6PnWesy4MhQJBoxW5wp90enKVGeb5OLO2wvaAtjPcq84L1guYgl_xrZ2pnpfOV7xO-8Y7U1&amp;t=ffffffffe6692900" type="text/javascript"></script>
+
+        <script type="text/javascript">
+            //<![CDATA[
+            var __cultureInfo = { "name": "th-TH", "numberFormat": { "CurrencyDecimalDigits": 2, "CurrencyDecimalSeparator": ".", "IsReadOnly": true, "CurrencyGroupSizes": [3], "NumberGroupSizes": [3], "PercentGroupSizes": [3], "CurrencyGroupSeparator": ",", "CurrencySymbol": "฿", "NaNSymbol": "NaN", "CurrencyNegativePattern": 1, "NumberNegativePattern": 1, "PercentPositivePattern": 1, "PercentNegativePattern": 1, "NegativeInfinitySymbol": "-∞", "NegativeSign": "-", "NumberDecimalDigits": 2, "NumberDecimalSeparator": ".", "NumberGroupSeparator": ",", "CurrencyPositivePattern": 0, "PositiveInfinitySymbol": "∞", "PositiveSign": "+", "PercentDecimalDigits": 2, "PercentDecimalSeparator": ".", "PercentGroupSeparator": ",", "PercentSymbol": "%", "PerMilleSymbol": "‰", "NativeDigits": ["๐", "๑", "๒", "๓", "๔", "๕", "๖", "๗", "๘", "๙"], "DigitSubstitution": 1 }, "dateTimeFormat": { "AMDesignator": "AM", "Calendar": { "MinSupportedDateTime": "\/Date(-62135596800000)\/", "MaxSupportedDateTime": "\/Date(253402275599999)\/", "AlgorithmType": 1, "Eras": [1], "TwoDigitYearMax": 2572, "IsReadOnly": true }, "DateSeparator": "/", "FirstDayOfWeek": 1, "CalendarWeekRule": 0, "FullDateTimePattern": "d MMMM yyyy H:mm:ss", "LongDatePattern": "d MMMM yyyy", "LongTimePattern": "H:mm:ss", "MonthDayPattern": "d MMMM", "PMDesignator": "PM", "RFC1123Pattern": "ddd, dd MMM yyyy HH\u0027:\u0027mm\u0027:\u0027ss \u0027GMT\u0027", "ShortDatePattern": "d/M/yyyy", "ShortTimePattern": "H:mm", "SortableDateTimePattern": "yyyy\u0027-\u0027MM\u0027-\u0027dd\u0027T\u0027HH\u0027:\u0027mm\u0027:\u0027ss", "TimeSeparator": ":", "UniversalSortableDateTimePattern": "yyyy\u0027-\u0027MM\u0027-\u0027dd HH\u0027:\u0027mm\u0027:\u0027ss\u0027Z\u0027", "YearMonthPattern": "MMMM yyyy", "AbbreviatedDayNames": ["อา.", "จ.", "อ.", "พ.", "พฤ.", "ศ.", "ส."], "ShortestDayNames": ["อา", "จ", "อ", "พ", "พฤ", "ศ", "ส"], "DayNames": ["อาทิตย์", "จันทร์", "อังคาร", "พุธ", "พฤหัสบดี", "ศุกร์", "เสาร์"], "AbbreviatedMonthNames": ["ม.ค.", "ก.พ.", "มี.ค.", "เม.ย.", "พ.ค.", "มิ.ย.", "ก.ค.", "ส.ค.", "ก.ย.", "ต.ค.", "พ.ย.", "ธ.ค.", ""], "MonthNames": ["มกราคม", "กุมภาพันธ์", "มีนาคม", "เมษายน", "พฤษภาคม", "มิถุนายน", "กรกฎาคม", "สิงหาคม", "กันยายน", "ตุลาคม", "พฤศจิกายน", "ธันวาคม", ""], "IsReadOnly": true, "NativeCalendarName": "พุทธศักราช", "AbbreviatedMonthGenitiveNames": ["ม.ค.", "ก.พ.", "มี.ค.", "เม.ย.", "พ.ค.", "มิ.ย.", "ก.ค.", "ส.ค.", "ก.ย.", "ต.ค.", "พ.ย.", "ธ.ค.", ""], "MonthGenitiveNames": ["มกราคม", "กุมภาพันธ์", "มีนาคม", "เมษายน", "พฤษภาคม", "มิถุนายน", "กรกฎาคม", "สิงหาคม", "กันยายน", "ตุลาคม", "พฤศจิกายน", "ธันวาคม", ""] }, "eras": [1, "พ.ศ.", null, -543] };
+            //]]>
+        </script>
+
+        <script type="text/javascript">
+            //<![CDATA[
+            if (typeof(Sys) === 'undefined') throw new Error('ASP.NET Ajax client-side framework failed to load.');
+            //]]>
+        </script>
+        
+        <!-- เติม Domain หน้าลิงก์รูปภาพ โลโก้ และไอคอนต่างๆ -->
+        <div>
+            <input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="702AB821" />
+        </div>
+        <table cellpadding="0" cellspacing="0" border="0" class="pWrapper">
+            <tr>
+                <td colspan="3">
+                    <table border="0" cellpadding="0" cellspacing="0" style="width:100%;">
+                        <tr>
+                            <td class="pageTL"><img src="https://sgs.bopp-obec.info/sgss/Images/space.gif" class="pageTLSpace" alt="" /></td>
+                            <td class="pageT"><img src="https://sgs.bopp-obec.info/sgss/Images/space.gif" class="pageTSpace" alt="" /></td>
+                            <td class="pageTR"><img src="https://sgs.bopp-obec.info/sgss/Images/space.gif" class="pageTRSpace" alt="" /></td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td class="pageL"><img src="https://sgs.bopp-obec.info/sgss/Images/space.gif" class="pageLSpace" alt="" /></td>
+                <td class="pageC">
+                    <table border="0" cellpadding="0" cellspacing="0" style="width: 100%">
+                        <tr>
+                            <td class="marginTL">&nbsp;</td>
+                            <td class="pcT" colspan="2">
+                                <table cellpadding="0" cellspacing="0" border="0" width="100%" class="logoBG">
+                                    <tr>
+                                        <td rowspan="3"><img id="ctl00__PageHeader__Logo" src="https://sgs.bopp-obec.info/sgss/Images/logo.gif" style="height:50px;width:50px;border-width:0px;" /></td>
+                                        <td rowspan="3"></td>
+                                        <td class="NewLogo" rowspan="3">SGS สำหรับนักเรียนและผู้ปกครอง</td>
+                                        <td class="fls" style="vertical-align:top;text-align:left;"></td>
+                                        <td style="text-align:right; vertical-align:top;" rowspan="3">
+                                            <table cellpadding="0" cellspacing="0" border="0">
+                                                <tr>
+                                                    <td>
+                                                        <table cellpadding="0" cellspacing="0" border="0">
+                                                            <tr>
+                                                                <td style="width:100%;"></td>
+                                                                <!-- ปรับลิงก์รูปปุ่มเข้าระบบ -->
+                                                                <td><img id="ctl00__PageHeader__LeftImage" alt="" src="https://sgs.bopp-obec.info/sgss/Images/SignInBarL.gif" style="height:23px;width:36px;border-width:0px;" /></td>
+                                                                <td class="signInBar"></td>
+                                                                <td class="signInBar"><input type="image" name="ctl00$_PageHeader$_SIOImage" id="ctl00__PageHeader__SIOImage" title="เข้าระบบ" alt="SignInButton" src="https://sgs.bopp-obec.info/sgss/Images/SignInBarSignIn.gif" style="border-width:0px;" /></td>
+                                                                <td><img id="ctl00__PageHeader__RightImage" alt="" src="https://sgs.bopp-obec.info/sgss/Images/SignInBarR.gif" style="height:23px;width:36px;border-width:0px;" /></td>
+                                                            </tr>
+                                                        </table>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                            <td class="marginTR">&nbsp;</td>
+                        </tr>
+                        <tr>
+                            <td class="marginmL">&nbsp;</td>
+                            <td class="pcmL"></td>
+                            <td class="pcmC">
+                                <!-- เมนูด้านบนต่างๆ ถูกซ่อนไว้เพื่อลดความยาวโค้ด -->
+                            </td>
+                            <td class="marginmR">&nbsp;</td>
+                        </tr>
+                        <tr>
+                            <td class="marginL">&nbsp;</td>
+                            <td class="pcL"></td>
+                            <td class="pcC">
+                                <div id="scrollRegion" class="scrollRegion">
+                                    <table class="dv" cellpadding="0" cellspacing="0" border="0">
+                                        <tr>
+                                            <td class="dh">
+                                                <table cellpadding="0" cellspacing="0" border="0" width="100%">
+                                                    <tr>
+                                                        <td class="dhel"><img src="https://sgs.bopp-obec.info/sgss/Images/space.gif" alt="" /></td>
+                                                        <td class="dheci" valign="middle">
+                                                            <input type="hidden" name="ctl00$PageContent$SignInCPExtender_ClientState" id="ctl00_PageContent_SignInCPExtender_ClientState" />
+                                                            <img id="ctl00_PageContent_SignInToggleIcon" title="ย่อ/ขยาย" src="https://sgs.bopp-obec.info/sgss/images/icon_panelcollapse.gif" style="border-width:0px;" />
+                                                        </td>
+                                                        <td class="dhb"><table cellpadding="0" cellspacing="0" border="0"><tr><td class="dht" valign="middle">เข้าระบบ</td></tr></table></td>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="dBody securityForm">
+                                                <div id="ctl00_PageContent_SignInCollapsibleRegion">
+                                                    <table cellpadding="0" cellspacing="0" border="0" width="325">
+                                                        <tr>
+                                                            <td style="padding-left:8px; padding-right:8px; padding-top:4px">
+                                                                <table cellpadding="1" cellspacing="1" border="0">
+                                                                    <tr><td colspan="4" style="height: 5px;"></td></tr>
+                                                                    <tr><td colspan="4"><span id="ctl00_PageContent_LoginMessage">ป้อนชื่อผู้ใช้และรหัสผ่านเพื่อเข้าระบบ</span></td></tr>
+                                                                    <tr><td colspan="4" style="height: 5px;"></td></tr>
+                                                                    <tr>
+                                                                        <td class="field_label"><span id="ctl00_PageContent_UserNameLabel">เลขประจำตัวนักเรียน</span></td>
+                                                                        <td class="field_value">
+                                                                            <input name="ctl00$PageContent$UserName" type="text" size="50" id="ctl00_PageContent_UserName" tabindex="1" class="field_input" />
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr><td colspan="4" style="height: 5px;"></td></tr>
+                                                                    <tr>
+                                                                        <td class="field_label"><span id="ctl00_PageContent_PasswordLabel">เลขประจำตัวประชาชน</span></td>
+                                                                        <td class="field_value">
+                                                                            <input name="ctl00$PageContent$Password" type="password" size="50" id="ctl00_PageContent_Password" tabindex="2" class="field_input" />
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr><td colspan="4" style="height: 5px;"></td></tr>
+                                                                    <tr>
+                                                                        <td></td>
+                                                                        <td class="fyp_link"></td>
+                                                                        <td><input id="ctl00_PageContent_AutomaticallySignIn" type="checkbox" name="ctl00$PageContent$AutomaticallySignIn" tabindex="5" /></td>
+                                                                        <td class="field_label"><span id="ctl00_PageContent_AutomaticallySignInLabel">เข้าใช้อัตโนมัติ</span></td>
+                                                                    </tr>
+                                                                </table>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+                                                                <table cellpadding="0" cellspacing="0" border="0" style="padding-top:10px; padding-bottom:5px;" align="center">
+                                                                    <tr>
+                                                                        <td>
+                                                                            <!-- ปุ่มตกลง -->
+                                                                            <input type="submit" name="ctl00$PageContent$OKButton" value="ตกลง" id="ctl00_PageContent_OKButton" />
+                                                                        </td>
+                                                                    </tr>
+                                                                </table>
+                                                            </td>
+                                                        </tr>
+                                                    </table>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </td>
+                            <td class="marginR">&nbsp;</td>
+                        </tr>
+                        <tr>
+                            <td class="marginBL">&nbsp;</td>
+                            <td class="pcB" colspan="2"><table cellpadding="0" cellspacing="0" border="0"><tr><td class="footer">Copyright © 2015 Office of Basic Education Commission. All rights reserved.</td></tr></table></td>
+                            <td class="marginBR">&nbsp;</td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>
